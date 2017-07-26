@@ -2,10 +2,10 @@
 
 头文件message.h定义了Message的结构. 
 
-Message实际上是个四层嵌套结构: 每个Message含一个Meta, 每个Meta含一个Control, 每个Control含一组Node.
-
-* Message寄放消息的实际内容(类型为SArray<class T>). 
-* Meta记录消息的收发方, 消息类型, 是push还是pull, 数据类型等.
+* 首先使用了自定义的`SArray`, i.e. Smart Array. 共享数据, 减少数据拷贝, 且提供了类似vector的接口.
+* 元数据`Meta`使用了Protobuf, 进行了数据压缩.
+* 消息分层比较清晰. `Node`包含节点的角色、id、ip、端口信息; `Control`包含了命令信息、签名等; `Meta`是元数据, 包含时间戳、发送者、接受者、控制信息等; `Message`才是发送的信息, 包含元数据和发送的数据. 
+* 参数有key-value组成, 对应`KVPairs`.
 
 # struct Node
 

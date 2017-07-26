@@ -9,7 +9,7 @@
 ### 1.1.2. MXNet和KVStore架构理解
 
 * Symbol: 声明式 (Declarative) 的符号表达式 (就是更贴近数学语言的程序语言啦)
-* NDArray: 命令式 (Imperative) 的张量计算 (一脸懵逼???什么是张量? 就是有现实意义、有计量单位的数组啦. [链接: 数学不行还学AI-第四话-知乎](https://zhuanlan.zhihu.com/p/25268020)）
+* NDArray: 命令式 (Imperative) 的张量计算 (一脸懵逼???什么是张量? 就是有现实意义、有计量单位的数组啦. [链接: 数学不行还学AI-第四话-知乎](https://zhuanlan.zhihu.com/p/25268020) )
 * **KVStore: ** 多设备间的数据交互. 通过push/pull实现交互.
   * `push`: worker向server推键值对
   * `pull`: server从worker按照键来取值
