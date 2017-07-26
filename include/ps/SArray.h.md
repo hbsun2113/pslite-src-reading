@@ -6,6 +6,12 @@ SArray意为Shared Array. 它和`std::vector`很像, 比如它有data(), size(),
 
 目前看来, 发送SArray只会用到data()和size()函数, 而接收SArray要用到SArray的构造方法.
 
+接收SArray肯定不能用这样的方法:
+
+> 先建立一个空的SArray, 然后一个一个push_back. 这样由于每5个就resize()一次, 会引发太多memcpy.
+
+**构造方法SArray(size_t size, V val = 0)能胜此任.**
+
 # 底层原理
 
 ## 数据结构
