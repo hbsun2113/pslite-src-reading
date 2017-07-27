@@ -43,7 +43,9 @@
 ### 1.2.3. 参考文献
 
 1. [[EB/OL]PS-Lite Documents](http://ps-lite.readthedocs.io/en/latest/). 这个文档介绍了PS-Lite的原理和用法.
+   * 追评: 感觉这个文档没什么用. 除了介绍了几个**ps-lite要用的环境变量**, 其他的都还没写完.
 2. [[EB/OL]PS-Lite源码分析 - 程序园](http://www.voidcn.com/blog/kangroger/article/p-6643933.html). 这个博文详细分析了PS-Lite的结构, 各个模块(类)的职能.
+   * 追评: 很详细. 语言组织不够流畅. 但是仔细看很有收获.
 3. [[EB/OL]PS-Lite源码剖析 - 作业部落](https://www.zybuluo.com/Dounm/note/529299). 这个博文详细剖析了PS-Lite的类职能, 消息处理流程和实现细节. 并给出了简单的例子.
 4. [[EB/OL]【深度学习&分布式】Parameter Server详解 - 仙道菜 - CSDN博客](http://blog.csdn.net/cyh_24/article/details/50545780). 这个博文详细解释了Parameter Server的优点(重点在几个动图), 架构(重点在push, pull, range push和range pull), 以及build blocks(由哪些算法和方法组成).
 5. [[J] Scaling Distributed Machine Learning with the Parameter Server](https://www.cs.cmu.edu/~muli/file/parameter_server_osdi14.pdf). 注意看Algorithm 1, 里面有ps-lite如何用来做分布式的随机梯度下降.
@@ -69,7 +71,7 @@
 
 ### 1.3.x+1. 参考代码
 
-1. [Basic Flow Control for RDMA Transfers的代码](https://sites.google.com/a/bedeir.com/home/rdma-file-transfer.tar.gz). 另有[本地备份](appendix/rdma-file-trasfer.tar.gz). 
+1. [Basic Flow Control for RDMA Transfers的代码](https://sites.google.com/a/bedeir.com/home/rdma-file-transfer.tar.gz). 在appendix目录中也有本地备份. 
 
 # 2. 经验总结
 
