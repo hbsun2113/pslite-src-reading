@@ -68,7 +68,7 @@
 3. [Basic Flow Control for RDMA Transfers](http://www.hpcadvisorycouncil.com/pdf/vendor_content/basic-flow-control-for-rdma-transfers.pdf)
 4. [RDMA Aware Programming User Manual](http://www.mellanox.com/related-docs/prod_software/RDMA_Aware_Programming_user_manual.pdf) 这可以说是RDMA的官方API文档
 5. [RDMA mojo : blog on RDMA technology and programming](http://www.rdmamojo.com/) RDMA创建者之一的博客
-6. [RDMA和IB的源码](http://elixir.free-electrons.com/linux/v4.3/source/include/rdma). RDMA和IB实际上是Linux源码的一部分.
+6. [RDMA和IB的源码](https://github.com/linux-rdma/rdma-core/). RDMA和IB实际上是Linux源码的一部分.
 
 ### 1.3.3. 参考代码
 
