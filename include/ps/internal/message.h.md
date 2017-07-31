@@ -35,7 +35,7 @@
 * `head` 头部, **干什么用的?** 
 * `customer_id` 详见customer.h.md.
 * `sender`和`recver`. 发送者和接收者的node id.
-* `data_type` 和Message的data长度相同. 是data每一项的对应类型.
+* `vector<DataType> data_type` 和Message的data长度相同. 是data每一项的对应类型.
 * `control` 消息携带的控制信息.
 
 
@@ -43,5 +43,5 @@
 # struct Message
 
 * `meta` 消息携带的元信息.
-* `data` 消息携带的数据.
+* `vector<SArray<char>> data` 消息携带的数据.
 
