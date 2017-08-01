@@ -67,8 +67,9 @@
 2. [RDMA Read and Write with IB Verbs](http://www.hpcadvisorycouncil.com/pdf/rdma-read-and-write-with-ib-verbs.pdf)
 3. [Basic Flow Control for RDMA Transfers](http://www.hpcadvisorycouncil.com/pdf/vendor_content/basic-flow-control-for-rdma-transfers.pdf)
 4. [RDMA Aware Programming User Manual](http://www.mellanox.com/related-docs/prod_software/RDMA_Aware_Programming_user_manual.pdf) 这可以说是RDMA的官方API文档
-5. [RDMA mojo : blog on RDMA technology and programming](http://www.rdmamojo.com/) RDMA创建者之一的博客
+5. [RDMA mojo : blog on RDMA technology and programming](http://www.rdmamojo.com/) RDMA创建者之一的博
 6. [RDMA和IB的源码](https://github.com/linux-rdma/rdma-core/). RDMA和IB实际上是Linux源码的一部分.
+7. [RDMA编程速记](http://cn.windyland.me/2016/09/01/rdma-programming/) .
 
 ### 1.3.3. 参考代码
 
@@ -95,3 +96,7 @@
 ### 2.1.3. 打印中间变量的值
 
 print, display
+
+## 2.2. 编译技巧
+
+在集群上进行源码编译的时候, 经常需要追加`PATH`, `C_INCLUDE_PATH`, `CPLUS_INCLUDE_PATH`, `LIBRARY_PATH`, `LD_LIBRARY_PATH`, `PKG_CONFIG_PATH`. 前五个比较好理解, 是可执行文件、包含文件、库文件的目录, 通常对gcc有用. 而`PKG_CONFIG_PATH`则是给configure或者cmake检查包是否存在用的. 通常一个成熟的包的`lib`目录下有`pkgconfig`目录. 如果有, 一定要追加到`PKG_CONFIG_PATH`里面. 否则cmake或者configure脚本就有可能检查不到库.
