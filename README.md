@@ -66,10 +66,13 @@
 1. [Building an RDMA-Capable Application with IB Verbs](http://www.hpcadvisorycouncil.com/pdf/building-an-rdma-capable-application-with-ib-verbs.pdf)
 2. [RDMA Read and Write with IB Verbs](http://www.hpcadvisorycouncil.com/pdf/rdma-read-and-write-with-ib-verbs.pdf)
 3. [Basic Flow Control for RDMA Transfers](http://www.hpcadvisorycouncil.com/pdf/vendor_content/basic-flow-control-for-rdma-transfers.pdf)
-4. [RDMA Aware Programming User Manual](http://www.mellanox.com/related-docs/prod_software/RDMA_Aware_Programming_user_manual.pdf) 这可以说是RDMA的官方API文档
-5. [RDMA mojo : blog on RDMA technology and programming](http://www.rdmamojo.com/) RDMA创建者之一的博
-6. [RDMA和IB的源码](https://github.com/linux-rdma/rdma-core/). RDMA和IB实际上是Linux源码的一部分.
-7. [RDMA编程速记](http://cn.windyland.me/2016/09/01/rdma-programming/) .
+4. [RDMA Aware Programming User Manual](http://www.mellanox.com/related-docs/prod_software/RDMA_Aware_Programming_user_manual.pdf) 这可以说是RDMA的官方API文档. 不过...信息量太少, 看起来很吃力.
+5. [Writing RDMA applications on Linux](http://www.digitalvampire.org/rdma-tutorial-2007/slides.pdf). 思科的ppt. 
+6. [RDMA教程](https://github.com/jcxue/RDMA-Tutorial). 
+7. [RDMA 课程PPT](http://www.cs.unh.edu/~rdr/rdma-intro-module.ppt) .
+8. [RDMA mojo : blog on RDMA technology and programming](http://www.rdmamojo.com/) RDMA创建者之一的博客. 
+9. [RDMA和IB的源码](https://github.com/linux-rdma/rdma-core/). RDMA和IB实际上是Linux源码的一部分.
+10. [RDMA编程速记](http://cn.windyland.me/2016/09/01/rdma-programming/) .
 
 ### 1.3.3. 参考代码
 
