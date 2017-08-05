@@ -6,6 +6,13 @@
 
 详见 [如何从源码编译安装MXNet的python模块?](Build_MXNet_from_source.md)
 
+注意:
+
+分布式运行的时候, 如果出现python报各种找不到module的错误, 然而这个module明明已经安装了, 那么很可能是ssh到新的节点上的时候, virtualenv没有运行起来. 解决办法如下
+
+1. 首先在`.bashrc`中添加一条source语句, 目的是每次登录都自动加载virtualenv.
+2. 然后重新登录你的账户.
+
 ### 1.1.2. MXNet和KVStore架构理解
 
 * Symbol: 声明式 (Declarative) 的符号表达式 (就是更贴近数学语言的程序语言啦)
