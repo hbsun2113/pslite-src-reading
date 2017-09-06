@@ -61,6 +61,8 @@ int RecvMsg(Message* msg) override;
 
 该函数调用[`zmq_msg_recv`](http://api.zeromq.org/4-2:zmq-msg-recv)收取数据. 接下来调用[`zmq_msg_data`](http://api.zeromq.org/4-2:zmq-msg-data)获得zmsg底层缓冲区的首地址.
 
+该函数采用**阻塞**式I/O的方式来调用zmq.
+
 ## 2) 解析数据
 
 为了方便解析message, ps-lite在使用zmq的时候约定收发方把ps-lite message拆成三个`zmq_msg`. 依次为sender/receiver, 其他meta信息, 以及数据负载.
