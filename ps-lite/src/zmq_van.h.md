@@ -1,8 +1,6 @@
 # 概述
 
-看这个代码需要随时查阅[ZeroMQ API](http://api.zeromq.org/).
-
-另外, zmq的api地址很有规律, 只要输入`http://api.zeromq.org/4-2:符号名`就能快速查找zmq api. 注意符号名的下划线要替换成减号.
+zmq_van采用的不是Client-Server架构, 而是Request-Reply架构. 这需要每个通讯节点有n个sender socket和1个receiver socket. Sender socket之间不需要切换上下文. 只需要在Sender和Receiver之间切换上下文. 相比之下, 如果采用c-s架构, 那么就要为每个连接都开一个监听线程, 这很浪费资源.
 
 # C++11速查
 
@@ -24,7 +22,7 @@ int Bind(const Node& node, int max_retry) override;
 
 返回最终绑定的端口号(有可能和`node.port`不一样). 如果绑定失败, 返回-1.
 
-## 1) 创建server socket
+## 1) 创建receiver socket
 
 首先, 调用[`zmq_socket`](http://api.zeromq.org/4-2:zmq-socket) 来创建一个ZMQ_ROUTER类型的socket. 
 
@@ -41,7 +39,7 @@ int Bind(const Node& node, int max_retry) override;
   * ZMQ_REQ和ZMQ_REP
   * ZMQ_DEALER和ZMQ_ROUTER
 
-文档还说, **Requiest-reply Pattern指的是一个request/dealer客户端向多个reply/router服务器发送请求, 并分别获取响应的通讯模式**.
+文档还说, **Request-reply Pattern指的是一个request/dealer客户端向多个reply/router服务器发送请求, 并分别获取响应的通讯模式**.
 
 ## 2) 绑定端口
 
