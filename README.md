@@ -107,6 +107,28 @@
 
 print, display
 
+### 2.1.4. 产生和使用core dump
+
+linux执行程序遇到段错误时, 会产生核心转储文件. 默认core大小为0, 也就是不产生core文件. 通过命令
+
+```shell
+ulimit -c unlimited
+```
+
+来允许系统产生core文件.
+
+之后执行出错的程序, 目的是复现段错误. 复现之后在可执行文件的目录下会产生一个core.#####文件. #号为线程pid.
+
+通过命令
+
+```shell
+gdb <executable> <corefile>
+```
+
+就可以查看出错的代码位置(前提是可执行文件在编译生成的时候加了调试选项 `-g`).
+
+结合前面所述的backtrace, list, print等gdb命令就可以快速定位野指针位置.
+
 ## 2.2. 编译技巧
 
 在集群上进行源码编译的时候, 经常需要追加`PATH`, `C_INCLUDE_PATH`, `CPLUS_INCLUDE_PATH`, `LIBRARY_PATH`, `LD_LIBRARY_PATH`, `PKG_CONFIG_PATH`. 前五个比较好理解, 是可执行文件、包含文件、库文件的目录, 通常对gcc有用. 而`PKG_CONFIG_PATH`则是给configure或者cmake检查包是否存在用的. 通常一个成熟的包的`lib`目录下有`pkgconfig`目录. 如果有, 一定要追加到`PKG_CONFIG_PATH`里面. 否则cmake或者configure脚本就有可能检查不到库.
