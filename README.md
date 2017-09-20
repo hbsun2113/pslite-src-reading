@@ -129,6 +129,22 @@ gdb <executable> <corefile>
 
 结合前面所述的backtrace, list, print等gdb命令就可以快速定位野指针位置.
 
+### 2.1.5. 查看死锁的进程和线程
+
+首先用gdb的`attach <pid>` 命令进入指定pid的进程(用ps\top\htop等方式获得死锁进程的pid). 通过调用堆栈`backtrace` \ `bt` 命令来查看死锁发生的位置. 然后用`info thread`命令查看子线程在当前进程中的id. 再用`thread <id>` 命令进入指定线程的上下文. 通过bt命令查看死锁位置. 这样就能分析出是哪些行为导致了死锁.
+
 ## 2.2. 编译技巧
 
 在集群上进行源码编译的时候, 经常需要追加`PATH`, `C_INCLUDE_PATH`, `CPLUS_INCLUDE_PATH`, `LIBRARY_PATH`, `LD_LIBRARY_PATH`, `PKG_CONFIG_PATH`. 前五个比较好理解, 是可执行文件、包含文件、库文件的目录, 通常对gcc有用. 而`PKG_CONFIG_PATH`则是给configure或者cmake检查包是否存在用的. 通常一个成熟的包的`lib`目录下有`pkgconfig`目录. 如果有, 一定要追加到`PKG_CONFIG_PATH`里面. 否则cmake或者configure脚本就有可能检查不到库.
+
+## 2.3. 杀虫(bugsticide)技巧
+
+bugsticide是我自己创造的词, 来自于杀虫剂(pesticide).
+
+假如工具没问题, 而上层代码使用工具的方法有问题, 那么我们不必一点一点地调试上层代码, 而是在工具代码的前面加一个
+
+```cpp
+*(int*)0=1;
+```
+
+来触发核心转储. 有了核心转储就能看到调用是谁在什么时候调用工具代码(查看调用堆栈). 还可以打印出哪些信息传入了工具代码.
